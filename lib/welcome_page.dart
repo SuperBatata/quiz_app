@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'delayed_animation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'social_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class WelcomePage extends StatelessWidget {
           child: Container(
         margin: EdgeInsets.symmetric(
           horizontal: 60,
-          vertical: 30,
+          vertical: 140,
         ),
         child: Column(
           children: [
@@ -21,19 +22,19 @@ class WelcomePage extends StatelessWidget {
               delay: 1500,
               child: Container(
                 height: 200,
-                child: Image.asset('images/logo.png'),
+                child: Image.asset('images/logo.png', fit: BoxFit.contain),
               ),
             ),
             DelayedAnimation(
               delay: 2500,
               child: Container(
-                height: 300,
+                height: 250,
                 margin: EdgeInsets.only(top: 30),
                 child: Text(
                   'Challenge your skills',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
-                    fontSize: 40,
+                    fontSize: 30,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                   ),
@@ -43,26 +44,35 @@ class WelcomePage extends StatelessWidget {
             DelayedAnimation(
               delay: 3500,
               child: Container(
-                color: Colors.white,
-                height: 300,
                 width: double.infinity,
-                child: Text(
-                  'with the best of the best',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xffB53030),
+                    padding: EdgeInsets.all(13),
+                    shape: StadiumBorder(),
                   ),
+                  child: Text(
+                    "get started",
+                    style: GoogleFonts.poppins(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SocialPage(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
           ],
         ),
-      )
-      
-      
-      ),
+      )),
     );
   }
 }
